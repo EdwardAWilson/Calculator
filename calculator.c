@@ -16,7 +16,7 @@ int main(int argc, char *argv[])
 	while(again)
 	{
 		printf("Enter equation to be calculated: ");
-		scanf("%lf %c %lf", &firstNumber, &operator, &secondNumber);
+		scanf(" %lf %c %lf", &firstNumber, &operator, &secondNumber);
 	
 		if (!(firstNumber && operator && secondNumber))
 		{
@@ -42,8 +42,9 @@ int main(int argc, char *argv[])
 		}
 
 		printf("Your answer is %0.2lf\n", ans);
-		printf("Would you like to enter another calculation? (y/n): \n");
-		scanf("%c", &againChoice);
+		printf("Would you like to enter another calculation? (y/n): ");
+		scanf(" %c", &againChoice);
+		printf("\n\n");
 
 		if (againChoice != 'y')
 		{
