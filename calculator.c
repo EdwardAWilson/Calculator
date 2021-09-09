@@ -6,8 +6,6 @@
 
 int main(int argc, char *argv[])
 {
-//	char calculateString[MAX_LENGTH];
-
 	double firstNumber;
 	char operator;
 	double secondNumber;
