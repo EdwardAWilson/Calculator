@@ -6,18 +6,51 @@
 
 int main(int argc, char *argv[])
 {
-	char calculateString[MAX_LENGTH];
+//	char calculateString[MAX_LENGTH];
 
-	printf("Enter equation to be calculated: ");
-	scanf("%s", calculateString);
+	double firstNumber;
+	char operator;
+	double secondNumber;
+	double ans;
+	int again = 1;
+	char againChoice;
 
-	long firstNumber = strtol(strtok(calculateString, " "), NULL, 10);
-	char* operator = strtok(calculateString, " ");
-	long secondNumber = strtol(strtok(calculateString, " "), NULL, 10);
-
-	if (!(firstNumber && operator && secondNumber))
+	while(again)
 	{
-		printf("Error, please input full equation");
-		return 0;
+		printf("Enter equation to be calculated: ");
+		scanf("%lf %c %lf", &firstNumber, &operator, &secondNumber);
+	
+		if (!(firstNumber && operator && secondNumber))
+		{
+			printf("Error, please input full equation");
+			return 0;
+		}
+	
+		switch(operator)
+		{
+			case '+':
+				ans = firstNumber + secondNumber;
+				break;
+			case '-':
+				ans = firstNumber - secondNumber;
+				break;
+			case '*':
+			case 'x':
+				ans = firstNumber * secondNumber;
+				break;
+			case '/':
+				ans = firstNumber / secondNumber;
+				break;		
+		}
+
+		printf("Your answer is %0.2lf\n", ans);
+		printf("Would you like to enter another calculation? (y/n): \n");
+		scanf("%c", &againChoice);
+
+		if (againChoice != 'y')
+		{
+			again = 0;
+		}
 	}
+
 }
